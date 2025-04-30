@@ -44,6 +44,9 @@ Replace the `entity` with the name of your actual sensor.
 
 You must have [Digitransit Custom Component](https://github.com/Mallonbacka/custom-component-digitransit) installed.
 
+## 🖼️ Example
+
+![image](https://github.com/user-attachments/assets/f46a097c-9e19-4fcd-b065-65cfd61934e3)
 
 
 ## 👏 Credits
