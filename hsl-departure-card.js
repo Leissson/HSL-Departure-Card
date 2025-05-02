@@ -10,13 +10,12 @@ class HSLDepartureCard extends HTMLElement {
     const sensor = hass.states[this.config.entity];
 
     if (!sensor) {
-      this.innerHTML = `<div class="card">Error: sensor "${this.config.entity}" not found.</div>`;
+      this.innerHTML = `<div class="card">Error: sensor \"${this.config.entity}\" not found.</div>`;
       return;
     }
 
     const data = sensor.attributes.departures || [];
     const now = new Date();
-	
 
     const style = `
       <style>
@@ -27,28 +26,39 @@ class HSLDepartureCard extends HTMLElement {
           padding: 1em;
           border-radius: 1em;
           color: var(--primary-text-color, #000);
-		  font-size: clamp(0.8em, 1.2vw, 1.2em);
+          font-size: clamp(0.8em, 1.5rem, 1.8em);
+          overflow: hidden;
+          box-sizing: border-box;
+          max-width: 100%;
+          position: relative;
+          z-index: 0;
+        }
+        .title {
+          font-size: 2em;
+          font-weight: bold;
+          text-align: left;
+          padding-bottom: 0.5em;
+          padding-top: 0.1em;
         }
         .header, .departure {
           display: grid;
           grid-template-columns: 10% auto 10%;
           align-items: left;
-      
           padding: 0.8em 0.1em 0.8em 0.1em;
         }
         .header {
           font-weight: bold;
-          border-bottom: 2.5px solid var(--primary-text-color, #000);
+          border-bottom: 2px solid var(--primary-text-color, #000);
           font-size: 0.8em;
           padding-bottom: 0.5em;
-		  padding-top: 0.5em;
+          padding-top: 0.5em;
           text-align: left;
         }
         .departure {
-          border-bottom: 0.3vh dotted var(--primary-text-color, #000);
+          border-bottom: 2px dotted var(--primary-text-color, #000);
         }
         .departure:first-of-type {
-          border-top: 2.5px solid var(--primary-text-color, #000);
+          border-top: 2px solid var(--primary-text-color, #000);
         }
         .departure:last-child {
           border-bottom: none;
@@ -61,17 +71,19 @@ class HSLDepartureCard extends HTMLElement {
         }
         .headsign {
           text-align: left;
-		  font-size: 1em;
+          font-size: 1em;
         }
         .time {
           text-align: right;
-		  font-size: 1em;
+          font-size: 1em;
           font-weight: bold;
           padding-right: 0.1em;
           justify-self: end;
         }
       </style>
     `;
+
+    const title = this.config.title ? `<div class="title">${this.config.title}</div>` : '';
 
     const header = `
       <div class="header">
@@ -100,6 +112,7 @@ class HSLDepartureCard extends HTMLElement {
     this.innerHTML = `
       ${style}
       <div class="card">
+        ${title}
         ${header}
         ${content || '<p>Ei lähtöjä saatavilla</p>'}
       </div>
