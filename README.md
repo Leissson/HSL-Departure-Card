@@ -10,6 +10,34 @@ This custom card displays upcoming HSL (Helsinki Region Transport) departures us
 
 ## 📦 Installation
 
+**Installing using HACS (recommended):**
+
+1. **Add the custom card using HACS**
+
+
+   Click the three-dot menu (⋮) in the top-right corner of the HACS Frontend screen
+
+   Choose “Custom repositories”
+
+   - **Repository:** /local/hsl-departure-card.js
+   - **Type:** Dashboard
+
+
+   Click Add.
+
+2. **Install the Card**
+
+   After adding the custom repository, you should see it in the list
+
+   Click the card and press Download
+
+3. **Reload your browser** (clear cache)
+
+
+#
+**Manual installing method:**
+
+
 1. **Save the JavaScript file**
 
    Save the hsl-departure-card.js file to your Home Assistant public folder:
@@ -27,11 +55,11 @@ This custom card displays upcoming HSL (Helsinki Region Transport) departures us
    - **URL**: `/local/hsl-departure-card.js`
    - **Type**: `JavaScript Module`
 
-3. **Reload your browser** (clear cache if needed).
+3. **Reload your browser** (clear cache).
 
 ## 🧾 YAML Configuration
 
-Example Lovelace YAML to add the card:
+Example dashboard YAML to add the card (minimium):
 
 ```yaml
 type: custom:hsl-departure-card
@@ -40,14 +68,20 @@ entity: sensor.kamppi_h1248_next_departure
 
 Replace the `entity` with the name of your actual sensor.
 
+| Name     | Type   | Required | Description                                          |
+| -------- | ------ | -------- | ---------------------------------------------------- |
+| `type`   | string | **Yes**  | Must be `'custom:hsl-departure-card'`                |
+| `entity` | string | **Yes**  | The entity ID of the sensor providing departure data |
+| `title`  | string | No       | Optional title to display at the top of the card     |
+
+
 ## 🔍 Requirements
 
 You must have [Digitransit Custom Component](https://github.com/Mallonbacka/custom-component-digitransit) installed.
 
 ## 🖼️ Example
 
-![image](https://github.com/user-attachments/assets/f46a097c-9e19-4fcd-b065-65cfd61934e3)
-
+![alt text](image-1.png)
 
 ## 👏 Credits
 
