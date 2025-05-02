@@ -19,7 +19,7 @@ This custom card displays upcoming HSL (Helsinki Region Transport) departures us
 
    Choose “Custom repositories”
 
-   - **Repository:** /local/hsl-departure-card.js
+   - **Repository:** Leissson/HSL-Departure-Card
    - **Type:** Dashboard
 
 
