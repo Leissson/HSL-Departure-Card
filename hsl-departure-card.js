@@ -23,63 +23,110 @@ class HSLDepartureCard extends HTMLElement {
         .card {
           font-family: 'Roboto Condensed', sans-serif;
           background-color: var(--ha-card-background, var(--card-background-color, #fff));
-          padding: 1em;
+          padding: 1em 1.1em;
           border-radius: 1em;
           color: var(--primary-text-color, #000);
-          font-size: clamp(0.8em, 1.5rem, 1.8em);
+          font-size: clamp(0.78rem, 2.1vw, 1rem);
           overflow: hidden;
           box-sizing: border-box;
           max-width: 100%;
           position: relative;
           z-index: 0;
+          line-height: 1.2;
         }
         .title {
-          font-size: 2em;
+          font-size: 1.8em;
           font-weight: bold;
           text-align: left;
-          padding-bottom: 0.5em;
+          padding-bottom: 0.45em;
           padding-top: 0.1em;
         }
         .header, .departure {
           display: grid;
-          grid-template-columns: 10% auto 10%;
-          align-items: left;
-          padding: 0.8em 0.1em 0.8em 0.1em;
+          grid-template-columns: 5.2em minmax(0, 1fr) 5.5em;
+          column-gap: 0.9em;
+          align-items: center;
+          padding: 0.7em 0;
         }
         .header {
           font-weight: bold;
-          border-bottom: 2px solid var(--primary-text-color, #000);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.18);
+          color: rgba(0, 0, 0, 0.72);
           font-size: 0.8em;
-          padding-bottom: 0.5em;
-          padding-top: 0.5em;
+          padding-bottom: 0.45em;
+          padding-top: 0.2em;
           text-align: left;
         }
         .departure {
-          border-bottom: 2px dotted var(--primary-text-color, #000);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.12);
         }
         .departure:first-of-type {
-          border-top: 2px solid var(--primary-text-color, #000);
+          border-top: none;
         }
         .departure:last-child {
           border-bottom: none;
         }
         .route {
-          font-size: 1em;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 2.1em;
+          padding: 0.1em 0.55em;
+          font-size: 0.98em;
           font-weight: bold;
-          text-align: left;
-          border-radius: 0.3em;
+          text-align: center;
+          border-radius: 0.35em;
+          background: #007ac9;
+          color: #fff;
+          width: fit-content;
+          min-width: 2.9em;
+          box-sizing: border-box;
         }
         .headsign {
           text-align: left;
           font-size: 1em;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
         .time {
           text-align: right;
           font-size: 1em;
           font-weight: bold;
-          padding-right: 0.1em;
           justify-self: end;
+          white-space: nowrap;
         }
+          @media (max-width: 480px) {
+            .card {
+              padding: 0.85em 0.8em;
+              font-size: 0.72rem;
+            }
+            .title {
+              font-size: 1.45em;
+              padding-bottom: 0.35em;
+            }
+            .header, .departure {
+              grid-template-columns: 3.9em minmax(0, 1fr) 4.7em;
+              column-gap: 0.55em;
+              padding: 0.58em 0;
+            }
+            .header {
+              font-size: 0.66em;
+            }
+            .route {
+              min-width: 2.75em;
+              min-height: 2em;
+              padding: 0.08em 0.45em;
+              font-size: 0.95em;
+            }
+            .headsign {
+              font-size: 0.96em;
+            }
+            .time {
+              font-size: 0.95em;
+            }
+          }
       </style>
     `;
 
