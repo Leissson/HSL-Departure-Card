@@ -26,7 +26,7 @@ class HSLDepartureCard extends HTMLElement {
           padding: 1em;
           border-radius: 1em;
           color: var(--primary-text-color, #000);
-          font-size: clamp(0.8em, 1.5rem, 1.8em);
+            font-size: clamp(0.8rem, 2.6vw, 1.1rem);
           overflow: hidden;
           box-sizing: border-box;
           max-width: 100%;
@@ -80,6 +80,21 @@ class HSLDepartureCard extends HTMLElement {
           padding-right: 0.1em;
           justify-self: end;
         }
+          @media (max-width: 480px) {
+            .card {
+              padding: 0.8em;
+              font-size: 0.8rem;
+            }
+            .title {
+              font-size: 1.6em;
+            }
+            .header, .departure {
+              padding: 0.6em 0;
+            }
+            .header {
+              font-size: 0.75em;
+            }
+          }
       </style>
     `;
 
